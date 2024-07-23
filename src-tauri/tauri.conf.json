@@ -29,7 +29,7 @@
     },
     "bundle": {
       "active": true,
-      "category": "MediaPlayer",
+      "category": "Music",
       "copyright": "town.evvil.afterglow",
       "deb": {
         "depends": []
