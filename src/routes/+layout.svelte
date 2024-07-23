@@ -3,6 +3,9 @@
     import { onMount } from "svelte";
 
     onMount(() => {
+        document.addEventListener("contextmenu", (event) =>
+            event.preventDefault(),
+        );
         document
             .getElementById("titlebar-minimize")
             .addEventListener("click", () => appWindow.minimize());

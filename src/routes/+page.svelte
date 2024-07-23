@@ -81,25 +81,27 @@
         <PauseIcon id="media-controls-icon" />
     </button>
 
-    <input
-        type="range"
-        min="0"
-        max="100"
-        value="50"
-        on:input={handleVolumeChanged}
-        on:wheel={(event) => {
-            if (event.deltaY < 0) {
-                event.target.valueAsNumber += 5;
-            } else {
-                event.target.value -= 5;
-            }
-            handleVolumeChanged(event);
-            event.preventDefault();
-            event.stopPropagation();
-        }}
-        class="slider"
-        id="volume-slider"
-    />
+    <div class="volume-slider">
+        <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            on:input={handleVolumeChanged}
+            on:wheel={(event) => {
+                if (event.deltaY < 0) {
+                    event.target.valueAsNumber += 5;
+                } else {
+                    event.target.value -= 5;
+                }
+                handleVolumeChanged(event);
+                event.preventDefault();
+                event.stopPropagation();
+            }}
+            class="slider"
+            id="volume-slider"
+        />
+    </div>
 </main>
 
 <style>
@@ -137,12 +139,16 @@
         transform: scale(0.95);
     }
 
+    .volume-slider {
+        position: relative;
+        top: 1rem;
+        height: 0rem;
+    }
+
     input[type="range"] {
         height: 4px;
         width: 6rem;
         border-radius: 4px;
-        position: relative;
-        top: 1.5rem;
         background-color: transparent;
         overflow: hidden;
         outline: 2px solid var(--c-foreground);
