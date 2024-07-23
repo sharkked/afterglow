@@ -17,6 +17,7 @@ body {
 }
 
 .titlebar {
+    color: var(--c-foreground);
     height: 30px;
     user-select: none;
     display: flex;
@@ -66,7 +67,12 @@ body {
 
 [data-playing="true"] button.media-controls-button,
 [data-playing="true"] input[type="range"],
-[data-playing="true"] input[type="range"]::-webkit-slider-thumb {
+[data-playing="true"] input[type="range"]::-webkit-slider-thumb,
+[data-playing="true"] .titlebar {
     opacity: 0.8;
     transition: all ease-out 5s;
+}
+
+[data-playing="true"] .titlebar-button:hover {
+    color: black;
 }

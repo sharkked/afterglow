@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
-    import PauseIcon from "$lib/PauseIcon.svelte";
-    import PlayIcon from "$lib/PlayIcon.svelte";
+    import MediaPause from "$lib/MediaPause.svelte";
+    import MediaPlay from "$lib/MediaPlay.svelte";
 
     let player;
     let playerState = null;
@@ -26,7 +26,7 @@
         if (!player) return;
         let playButton = document.querySelector("#play-pause");
         playButton.innerHTML = "";
-        new PauseIcon({
+        new MediaPause({
             target: playButton,
         });
         player.playVideo();
@@ -37,7 +37,7 @@
         if (!player) return;
         let playButton = document.querySelector("#play-pause");
         playButton.innerHTML = "";
-        new PlayIcon({
+        new MediaPlay({
             target: playButton,
         });
         player.stopVideo();
@@ -107,7 +107,7 @@
         class="media-controls-button"
         on:click={handleTogglePlaying}
     >
-        <PauseIcon id="media-controls-icon" />
+        <MediaPause id="media-controls-icon" />
     </button>
 
     <div class="volume-slider">
